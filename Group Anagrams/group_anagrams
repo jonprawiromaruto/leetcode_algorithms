@@ -1,0 +1,23 @@
+from collections import defaultdict
+
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        # mapping count of chars in list of anagrams / strings
+        res = defaultdict(list)
+
+        # iterating through each strings on the list 
+        for string in strs:
+            # getting a - z
+            count = [0] * 26 
+
+            # iterating through each chars on each strings
+            for char in string:
+                count[ord(char) - ord("a")] += 1
+
+            res[tuple(count)].append(string)
+
+        return res.values()
