@@ -1,3 +1,6 @@
+import collections
+
+
 class Solution(object):
     def isValidSudoku(self, board):
         """
